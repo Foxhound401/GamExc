@@ -16,6 +16,8 @@ import HomeView from '../Main/Shop/Home/HomeView';
 import ListProduct from '../Main/Shop/ListProduct/ListProduct';
 import Login from '../Authentication/Login';
 import Signup from '../Authentication/Signup';
+import ProductDetails from '../Main/Shop/ProductDetail/ProductDetails';
+import Shop from '../Main/Shop/Shop';
 
 
 const homeIcon = (<Icon name='home' size={24} />);
@@ -24,34 +26,11 @@ const profileIcon = (<Icon name='user' size={24} />);
 const cartIcon = (<Icon name='shopping-cart' size={24} />);
 const walletIcon = (<Icon name="credit-card" size={24} />);
 
-export const HomeStack = createStackNavigator(
-    {
-        HomeView: {
-            screen: HomeView,
-            navigationOptions: {
-                header: null,
-            }
-        },
-        ListView: {
-            screen: ListProduct,
-        }
-    },
-    {
-        initialRouteName: 'HomeView',
-    }
-);
-
 
 export const AuthenticationStack = createSwitchNavigator(
     {
         AuthenticationScreen: {
             screen: Authentication,
-        },
-        LoginScreen: {
-            screen: Login,
-        },
-        SignupScreen: {
-            screen: Signup,
         },
     },
     {
@@ -59,6 +38,7 @@ export const AuthenticationStack = createSwitchNavigator(
         headerMode: 'screen',
     }
 );
+
 export const ProfileStack = createStackNavigator(
     {
 
@@ -70,6 +50,27 @@ export const ProfileStack = createStackNavigator(
     },
     {
         initialRouteName: 'Profile',
+    }
+);
+
+export const HomeStack = createStackNavigator(
+    {
+        HomeView: {
+            screen: Shop,
+            navigationOptions: {
+                header: null,
+            }
+        },
+        ListView: {
+            screen: ListProduct,
+        },
+        DetailView: {
+            screen: ProductDetails,
+        },
+    },
+    {
+        initialRouteName: 'HomeView',
+        headerMode: 'none',
     }
 );
 
@@ -117,4 +118,6 @@ export const TabBar = createBottomTabNavigator(
         headerMode: 'none'
     }
 );
+
+
 
