@@ -18,7 +18,7 @@ export default class Collection extends Component {
                     {
                         drawers.map(e =>
                             (
-                                <TouchableOpacity style={wrapper} onPress={() => console.log(e.id)} key={e.link} >
+                                <TouchableOpacity style={wrapper} onPress={() => console.log(e.id)} key={e.id} >
                                     <Image source={{ uri: `${url}${e.link}` }} style={imageStyle} />
                                 </TouchableOpacity>
                             )
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         paddingTop: 0,
     },
     textStyle: {
-        fontSize: 20,
+        fontSize: 16,
         color: '#AFAEAF'
     },
     imageStyle: {
